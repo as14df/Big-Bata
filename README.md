@@ -83,13 +83,13 @@ webapp | Container mit NodeJs Webseite| https://hub.docker.com/repository/docker
 
 ### Ordner und Dateien
 
-asds|hghj|df|sdf
+|||
 ---|----|---|---
 Airflow | Beinhaltet alle Dags und Operatoren | |
---| address_validation.py | Beinhaltet den DAG |
---| hdfs_operators.py | Definiert alle vorhandenen Operatoren |
---| hdfs_put_operator.py | Kopier alle Csv-Dateien und alle Länder-Ordner ins HDFS |
---| zip_file_operator.py | Entpackt eine Zip-Datei |
+| address_validation.py | Beinhaltet den DAG |
+| hdfs_operators.py | Definiert alle vorhandenen Operatoren |
+| hdfs_put_operator.py | Kopier alle Csv-Dateien und alle Länder-Ordner ins HDFS |
+| zip_file_operator.py | Entpackt eine Zip-Datei |
 Images | Beinhaltet Bilder für die README.md | |
 SqlQueries | Beinhaltet alle DDL Sql-Queries | |
 --| Hive | Beinhaltet alle DDL Sql-Queries für Hive |
