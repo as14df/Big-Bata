@@ -25,10 +25,6 @@ Es soll der folgende Ablauf stattfinden:
 Der ETL-Workflow wird mit dem Tool Airflow realisiert.
 Er implementiert dabei den im Folgenden dargestellten Ablauf
 
-
-
-
-
 * Herunterladen der Address-Daten als Zip-Datei und entpacken.
 
 * Kopieren der relevanten Daten (nur Csv-Dateien und Länder-Ordner) ins HDFS
@@ -38,6 +34,8 @@ Er implementiert dabei den im Folgenden dargestellten Ablauf
 * Exportieren der Hive-Tabelle in eine MySql-Datenbank
 
 * Validierung der Daten durch eine NodeJs-Webseite mit Zugriff auf die MySql-Datenbank
+
+![Alt text](Images/workflow.png "Workflow")
 
 ### Airflow Tasks
 
