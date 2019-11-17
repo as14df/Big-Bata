@@ -34,13 +34,9 @@ Der ETL-Workflow wird mit dem Tool Airflow realisiert.
 Er implementiert dabei den im Folgenden dargestellten Ablauf
 
 * Herunterladen der Address-Daten als Zip-Datei und entpacken.
-
 * Kopieren der relevanten Daten (nur Csv-Dateien und Länder-Ordner) ins HDFS
-
-* Extrahieren der nötigen Daten in eine neue Hive-Tabelle (Land,Stadt,Postleitzahl,Straße,Hausnummer)
-
+* Extrahieren der nötigen Daten in eine neue Hive-Tabelle (Land, Stadt, Postleitzahl, Straße, Hausnummer)
 * Exportieren der Hive-Tabelle in eine MySql-Datenbank
-
 * Validierung der Daten durch eine NodeJs-Webseite mit Zugriff auf die MySql-Datenbank
 
 ![Alt text](Images/workflow.png "Workflow")
@@ -56,17 +52,17 @@ create_local_import_dir | Erstellt einen neuen import ordner "/home/airflow/open
 download_address_data | Lädt die Daten als Zip-datei herunter "/home/airflow/openaddresses/openaddr-collected-europe.zip"
 unzip_adress_data | Entpackt die Zip-Datei in den Ordner "/home/airflow/openaddresses/openaddr-collected-europe"
 create_hive_table_address_data | Erstellt die Hive Tabelle "address_data" für die Address Daten, die nach Jahr, Monat, Tag, Land partitioniert ist
-create_hdfs_address_data_dir_X | Erstellt für jedes Land einen Ordner im HDFS mit dem Schema "/user/hadoop/openaddresses/raw/<Jahr>/<Monat>/<Tag>/<Land>"
+create_hdfs_address_data_dir_X | Erstellt für jedes Land einen Ordner im HDFS mit dem Schema "/user/hadoop/openaddresses/raw/*Jahr*/*Monat*/*Tag*/*Land*"
 dummy0 | Wartet, bis alle Ordner erstellt wurden
-hdfs_put_address_data_<Land> | Kopiert alle Csv-Dateien aus jedem Ordner in den jeweiligen HDFS Ordner
+hdfs_put_address_data_*Land* | Kopiert alle Csv-Dateien aus jedem Ordner in den jeweiligen HDFS Ordner
 dummy1 | Wartet, bis alle Daten ins HDFS kopier wurden
-hive_add_partition_address_data_<Land> | Fügt den Inhalt jedes Ordners als partition in die Hive-Tabelle ein
+hive_add_partition_address_data_*Land* | Fügt den Inhalt jedes Ordners als partition in die Hive-Tabelle ein
 dummy2 | Wartet, bis alle partitionen zur Hive-Tabelle hinzugefügt worden sind
 create_hive_table_final_address_data | Erstellt die Tabelle "final_address_data", die die bereinigten Daten beinhalten wird
 hive_insert_overwrite_final_address_data | Kopiert die spalten Country, City, Postcode, Street, Number, Hash in die Tabelle "final_address_data"
 create_table_remote | Erstellt die Tabelle "final_address_data" in der Mysql Datenbank für die bereinigten Daten, falls noch nicht vorhanden
 delete_from_remote | Löscht alle alten Daten aus der Tabelle "final_address_data" falls vorhanden
-hive_to_mysql_<Land> | kopiert alle Daten aus der Hive Tabelle "final_address_data" nacheinander nach Ländern in die MySql tabelle "final_address_data" 
+hive_to_mysql_*Land* | kopiert alle Daten aus der Hive Tabelle "final_address_data" nacheinander nach Ländern in die MySql tabelle "final_address_data" 
 
 ## Projektaufbau
 
