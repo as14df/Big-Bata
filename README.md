@@ -64,6 +64,13 @@ create_table_remote | Erstellt die Tabelle "final_address_data" in der Mysql Dat
 delete_from_remote | Löscht alle alten Daten aus der Tabelle "final_address_data" falls vorhanden
 hive_to_mysql_*Land* | kopiert alle Daten aus der Hive Tabelle "final_address_data" nacheinander nach Ländern in die MySql tabelle "final_address_data" 
 
+### Webseite
+
+In der Webseite können Addressen in das Formular eingegeben werden. dabei können auch Felder frei gelassen werden. Nach Drücken des "Validate"-Buttons wird angezeigt, ob die Addresse gültig ist oder nicht.
+
+![Alt text](Images/website.png "Website")
+
+
 ## Projektaufbau
 
 ### Container
@@ -72,8 +79,8 @@ Für die Realisierung werden die folgenden vier Docker Container verwendet:
 
 Container | Beschreibung | DockerHub
 ------|-----|-----
-hadoop | Container mit Hive und Hadoop|
-airflow | Container mit Airflow|
+hadoop | Container mit Hive und Hadoop| https://hub.docker.com/repository/docker/as14df/hadoop
+airflow | Container mit Airflow| https://hub.docker.com/repository/docker/as14df/airflow_image
 mysql | Container mit Mysql Datenbank| https://hub.docker.com/repository/docker/as14df/mysql
 webapp | Container mit NodeJs Webseite| https://hub.docker.com/repository/docker/as14df/node-web-app
 
