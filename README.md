@@ -83,8 +83,8 @@ webapp | Container mit NodeJs Webseite| https://hub.docker.com/repository/docker
 
 ### Ordner und Dateien
 
-|||
----|----|---|
+asds|hghj|df|sdf
+---|----|---|---
 Airflow | Beinhaltet alle Dags und Operatoren | |
 | address_validation.py | Beinhaltet den DAG |
 | hdfs_operators.py | Definiert alle vorhandenen Operatoren |
