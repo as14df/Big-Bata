@@ -2,10 +2,17 @@
 
 ## Aufgabenstellung
 
-Mit diesem Workflow soll es möglich werden Addressen anhand der Daten von OpenAddresses.io 
-zu validieren.
+Mit dem folgenden Workflow soll es möglich werden, Addressen anhand der von OpenAddresses.io
+bereitgestellten Daten zu validieren. 
 
-Es soll der folgende Ablauf stattfinden:
+Die Address-Daten können als Zip-Datei heruntergeladen werden,
+deren Inhalt in den folgenden Abbildungen dargestellt wird.
+
+![Alt text](Images/address_data_folders.png "Workflow")
+![Alt text](Images/address_data.png "Workflow") 
+
+Um Addressen anhand dieser Daten validieren zu können,
+soll der folgende Workflow realisiert werden:
 
 * Sammeln von Daten aus OpenAddresses.io
 * Speicherung der Rohdaten (CSV-Dateien) in HDFS (nach Ländern gegliedert)
