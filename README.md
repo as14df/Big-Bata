@@ -25,6 +25,7 @@ soll der folgende Workflow realisiert werden:
   * Anzeigen des Ergebnisses (echte oder nicht echte Adresse)
 * Der gesamte Daten-Workflow muss innerhalb eines ETL Workflow-Tools (Airflow/Pentaho) implementiert und automatisch ausgeführt werden.
 
+
 ## Umsetzung
 
 ### ETL Workflow
@@ -65,11 +66,40 @@ create_hive_table_final_address_data | erstellt eine Tabelle, die die bereinigte
 hive_insert_overwrite_final_address_data | kopiert die spalten Country,City,Postcode,Street,Number,Hash ind die finale Tabelle
 create_table_remote | erstellt eine neue tabelle in der Mysql datenbank für die bereinigten Daten falls noch nicht 
 delete_from_remote | löscht alle alten daten aus der tabelle falls vorhanden
-hive_to_mysql_X | kopiert alle Daten aus der Hive tabelle nacheinander nach Ländern in die sqm tabelle  
+hive_to_mysql_X | kopiert alle Daten aus der Hive tabelle nacheinander nach Ländern in die MySql tabelle  
 
+## Projektaufbau
 
+### Container
 
+Für die Realisierung werden die folgenden vier Docker Container verwendet:
 
+Container | Beschreibung | DockerHub
+------|-----|-----
+hadoop | Container mit Hive und Hadoop|
+airflow | Container mit Airflow|
+mysql | Container mit Mysql Datenbank| https://hub.docker.com/repository/docker/as14df/mysql
+webapp | Container mit NodeJs Webseite| https://hub.docker.com/repository/docker/as14df/node-web-app
 
+### Ordner und Dateien
+
+Airflow | Beinhaltet alle Dags und Operatoren | |
+| address_validation.py | Beinhaltet den DAG |
+| hdfs_operators.py | Definiert alle vorhandenen Operatoren |
+| hdfs_put_operator.py | Kopier alle Csv-Dateien und alle Länder-Ordner ins HDFS |
+| zip_file_operator.py | Entpackt eine Zip-Datei |
+Images | Beinhaltet Bilder für die README.md | |
+SqlQueries | Beinhaltet alle DDL Sql-Queries | |
+| Hive | Beinhaltet alle DDL Sql-Queries für Hive |
+|| address_data.sql | Beinhaltet das Create Statement der address_data Tabelle
+|| address_data_alter.sql | Beinhaltet das Alter Statement der address_data Tabelle
+|| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle
+|| final_address_data_overwrite.sql | Beinhaltet das Insert Overwrite Statement der final_address_data Tabelle
+| MySql | Beinhaltet alle DDL Sql-Queries für MySql |
+|| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle
+WebApp | Beinhaltet die relevanten Dateien für die Webseite | |
+| index.ejs | Beinhaltet den HTML Code der Webseite |
+| server.js | Beinhaltet den Server Code der Webseite |
+README.md | Beinhaltet die Dokumentation des Projekts ||
 
 
