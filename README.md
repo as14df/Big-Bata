@@ -83,25 +83,25 @@ webapp | Container mit NodeJs Webseite| https://hub.docker.com/repository/docker
 
 ### Ordner und Dateien
 
-|||
----|----|---|---
-Airflow | Beinhaltet alle Dags und Operatoren | |
-| address_validation.py | Beinhaltet den DAG |
-| hdfs_operators.py | Definiert alle vorhandenen Operatoren |
-| hdfs_put_operator.py | Kopier alle Csv-Dateien und alle Länder-Ordner ins HDFS |
-| zip_file_operator.py | Entpackt eine Zip-Datei |
-Images | Beinhaltet Bilder für die README.md | |
-SqlQueries | Beinhaltet alle DDL Sql-Queries | |
---| Hive | Beinhaltet alle DDL Sql-Queries für Hive |
---|--| address_data.sql | Beinhaltet das Create Statement der address_data Tabelle
---|--| address_data_alter.sql | Beinhaltet das Alter Statement der address_data Tabelle
---|--| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle
---|--| final_address_data_overwrite.sql | Beinhaltet das Insert Overwrite Statement der final_address_data Tabelle
---| MySql | Beinhaltet alle DDL Sql-Queries für MySql |
---|--| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle
-WebApp | Beinhaltet die relevanten Dateien für die Webseite | |
---| index.ejs | Beinhaltet den HTML Code der Webseite |
---| server.js | Beinhaltet den Server Code der Webseite |
-README.md | Beinhaltet die Dokumentation des Projekts ||
+||     |     ||
+|---|----|---|---|
+|Airflow | Beinhaltet alle Dags und Operatoren | ||
+|| address_validation.py | Beinhaltet den DAG ||
+|| hdfs_operators.py | Definiert alle vorhandenen Operatoren ||
+|| hdfs_put_operator.py | Kopier alle Csv-Dateien und alle Länder-Ordner ins HDFS ||
+|| zip_file_operator.py | Entpackt eine Zip-Datei ||
+|Images | Beinhaltet Bilder für die README.md | ||
+|SqlQueries | Beinhaltet alle DDL Sql-Queries | ||
+|--| Hive | Beinhaltet alle DDL Sql-Queries für Hive ||
+|--|--| address_data.sql | Beinhaltet das Create Statement der address_data Tabelle|
+|--|--| address_data_alter.sql | Beinhaltet das Alter Statement der address_data Tabelle|
+|--|--| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle|
+|--|--| final_address_data_overwrite.sql | Beinhaltet das Insert Overwrite Statement der final_address_data Tabelle|
+|--| MySql | Beinhaltet alle DDL Sql-Queries für MySql ||
+|--|--| final_address_data.sql | Beinhaltet das Create Statement der final_address_data Tabelle|
+|WebApp | Beinhaltet die relevanten Dateien für die Webseite | ||
+|--| index.ejs | Beinhaltet den HTML Code der Webseite ||
+|--| server.js | Beinhaltet den Server Code der Webseite ||
+|README.md | Beinhaltet die Dokumentation des Projekts |||
 
 
